@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta_title">good santa | Moonlit Fullstack</title>
+  <meta name="description" content="Lo-fi night coder portfolio of good santa" data-i18n-attr="content:meta_description" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+
+  <header class="topbar">
+    <p class="brand">good santa</p>
+    <div class="top-controls">
+      <nav>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#stack" data-i18n="nav_stack">Stack</a>
+        <a href="#now" data-i18n="nav_now">Now</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#collab" data-i18n="nav_collab">Collab</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switch">
+        <button class="lang-btn active" type="button" data-lang-btn="uk">UA</button>
+        <button class="lang-btn" type="button" data-lang-btn="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <div class="hero-copy">
+        <p class="kicker" data-i18n="hero_kicker">fullstack night log</p>
+        <h1 data-i18n="hero_title">good santa: У моєму мішку лише валідний код та швидкі запити.</h1>
+        <p data-i18n="hero_subtitle">Тихий ритм, сильний фокус, продуманий фулстек. 🌙✨🐈</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects" data-i18n="hero_btn_projects">Проєкти</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="hero_btn_contact">Контакти</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img class="moon" src="./assets/background.jpg" alt="Night moon background" />
+        <img class="avatar" src="./assets/Avatar-removebg-preview.png" alt="Samurai cat avatar" />
+      </div>
+    </section>
+
+    <section id="about" class="panel reveal">
+      <h2 data-i18n="about_title">About / Про мене</h2>
+      <p data-i18n="about_text">Я <strong>good santa</strong>, студент і fullstack-розробник. Працюю над реальними вебпроєктами та прокачую архітектурне мислення.</p>
+    </section>
+
+    <section id="stack" class="panel reveal">
+      <h2 data-i18n="stack_title">Tech Stack</h2>
+      <div class="chips">
+        <span>Fullstack</span>
+        <span>[Stack soon]</span>
+        <span>[Stack soon]</span>
+        <span>[Stack soon]</span>
+      </div>
+      <p class="hint" data-i18n="stack_hint">Коли скинеш стек, заміню плейсхолдери на конкретні технології.</p>
+    </section>
+
+    <section id="now" class="panel reveal">
+      <h2 data-i18n="now_title">Now</h2>
+      <p data-i18n="now_text">Зараз фокус на швидких fullstack MVP, чистих API і нормальній продуктивності без зайвого шуму.</p>
+    </section>
+
+    <section class="panel reveal">
+      <h2 data-i18n="goals_title">Goals 2026</h2>
+      <div class="goal-grid">
+        <article class="goal-item" data-i18n="goal_1">Ship 3 production-ready projects.</article>
+        <article class="goal-item" data-i18n="goal_2">Прокачати тестування: unit + e2e.</article>
+        <article class="goal-item" data-i18n="goal_3">Open-source contribution every month.</article>
+      </div>
+    </section>
+
+    <section id="projects" class="panel reveal">
+      <h2 data-i18n="projects_title">Featured Projects</h2>
+      <div class="project-grid">
+        <a class="project-card" href="https://bingo.pippsza.dev/ru/about" target="_blank" rel="noreferrer">
+          <h3 data-i18n="project1_title">Bingo Project</h3>
+          <p data-i18n="project1_desc">Сайт, над яким я працював: сторінка About / RU.</p>
+          <span data-i18n="project_open">Open project ↗</span>
+        </a>
+        <a class="project-card" href="https://sen.pippsza.dev/en" target="_blank" rel="noreferrer">
+          <h3 data-i18n="project2_title">SEN Project</h3>
+          <p data-i18n="project2_desc">Вебпроєкт, над яким я працював: англомовна версія.</p>
+          <span data-i18n="project_open">Open project ↗</span>
+        </a>
+        <a class="project-card" href="https://contacts.pippsza.dev/" target="_blank" rel="noreferrer">
+          <h3 data-i18n="project3_title">Contacts Project</h3>
+          <p data-i18n="project3_desc">Контактний вебпроєкт, над яким я працював.</p>
+          <span data-i18n="project_open">Open project ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="collab" class="panel reveal">
+      <h2 data-i18n="collab_title">Collab</h2>
+      <p data-i18n="collab_text">Відкритий до співпраці: pet-проєкти, MVP, фриланс і командні задачі fullstack-рівня.</p>
+    </section>
+
+    <section id="contact" class="panel reveal">
+      <h2 data-i18n="contact_title">Contact</h2>
+      <div class="contact-list">
+        <a href="https://github.com/good-santa" target="_blank" rel="noreferrer">💻 github.com/good-santa</a>
+        <a href="https://t.me/g00d_santa" target="_blank" rel="noreferrer">✨ t.me/g00d_santa</a>
+        <a href="https://steamcommunity.com/profiles/76561199033140296" target="_blank" rel="noreferrer" data-i18n="contact_steam">🎮 Steam Profile</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
