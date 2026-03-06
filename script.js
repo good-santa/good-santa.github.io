@@ -136,38 +136,27 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-const canUseCursorGlow = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const topControls = document.querySelector(".top-controls");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelectorAll("#site-nav a");
 
-if (canUseCursorGlow) {
-  const root = document.documentElement;
-  const body = document.body;
-  let rafId = null;
-  let nextX = window.innerWidth / 2;
-  let nextY = window.innerHeight / 2;
-
-  const paintCursorGlow = () => {
-    root.style.setProperty("--cursor-x", `${nextX}px`);
-    root.style.setProperty("--cursor-y", `${nextY}px`);
-    rafId = null;
+if (topControls && navToggle) {
+  const closeMobileNav = () => {
+    topControls.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
   };
 
-  const queuePaint = () => {
-    if (rafId !== null) return;
-    rafId = window.requestAnimationFrame(paintCursorGlow);
-  };
-
-  window.addEventListener("mousemove", (event) => {
-    nextX = event.clientX;
-    nextY = event.clientY;
-    body.classList.add("cursor-glow-active");
-    queuePaint();
+  navToggle.addEventListener("click", () => {
+    const isOpen = topControls.classList.toggle("nav-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  window.addEventListener("mouseenter", () => {
-    body.classList.add("cursor-glow-active");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileNav);
   });
 
-  window.addEventListener("mouseleave", () => {
-    body.classList.remove("cursor-glow-active");
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) closeMobileNav();
   });
 }
+

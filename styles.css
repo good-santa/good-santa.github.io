@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #09070f;
   --panel: rgba(18, 14, 30, 0.62);
   --line: rgba(184, 144, 255, 0.24);
@@ -7,8 +7,6 @@
   --violet: #7f57c8;
   --pink: #d17bb8;
   --cyan: #7ed4f3;
-  --cursor-x: 50%;
-  --cursor-y: 50%;
 }
 
 * {
@@ -28,27 +26,6 @@ body {
     linear-gradient(160deg, #07060d 0%, #0d0916 55%, #130d20 100%);
   font-family: "Space Grotesk", system-ui, sans-serif;
   overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 180ms ease;
-  background:
-    radial-gradient(
-      220px circle at var(--cursor-x) var(--cursor-y),
-      rgba(126, 212, 243, 0.2) 0%,
-      rgba(126, 212, 243, 0.08) 35%,
-      rgba(126, 212, 243, 0) 70%
-    );
-}
-
-body.cursor-glow-active::before {
-  opacity: 1;
 }
 
 .ambient {
@@ -92,12 +69,46 @@ body.cursor-glow-active::before {
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.04em;
   font-size: 1.35rem;
+  white-space: nowrap;
 }
 
 .top-controls {
   display: flex;
   align-items: center;
   gap: 0.9rem;
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--text);
+  border-radius: 999px;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.top-controls.nav-open .nav-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.top-controls.nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.top-controls.nav-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 nav {
@@ -378,6 +389,10 @@ nav a:hover {
   color: var(--cyan);
 }
 
+.contact-list a span {
+  overflow-wrap: anywhere;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -400,18 +415,82 @@ nav a:hover {
 
 @media (max-width: 860px) {
   .topbar {
-    align-items: flex-start;
+    align-items: center;
     gap: 0.6rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .brand {
+    margin-right: auto;
+    font-size: 1.22rem;
+    line-height: 1;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
   }
 
   .top-controls {
-    width: 100%;
-    justify-content: space-between;
+    width: auto;
+    margin-left: auto;
+    justify-content: flex-end;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .top-controls.nav-open {
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    order: 3;
+  }
+
+  .lang-switch {
+    order: 2;
+    margin-left: auto;
+  }
+
+  nav {
+    order: 4;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.25rem 0 0.15rem;
+  }
+
+  .top-controls.nav-open nav {
+    display: flex;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+  }
+
+  .container {
+    margin: 1.2rem auto 3rem;
+    gap: 1rem;
   }
 
   .hero {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+
+  .hero-copy p {
+    max-width: 100%;
   }
 
   .hero-art {
@@ -419,7 +498,9 @@ nav a:hover {
   }
 
   .avatar {
-    width: min(30%, 150px);
+    width: min(34%, 150px);
+    right: 0.7rem;
+    bottom: -0.6rem;
   }
 
   .project-grid {
@@ -429,11 +510,69 @@ nav a:hover {
   .goal-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (hover: none), (pointer: coarse) {
-  body::before {
-    display: none;
+  .panel {
+    padding: 1rem;
   }
 }
+
+@media (max-width: 620px) {
+  .brand {
+    font-size: 1.18rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.68rem 0.9rem;
+  }
+
+  .hero-art {
+    min-height: 220px;
+  }
+
+  .project-card,
+  .goal-item {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .container {
+    width: min(1040px, 94vw);
+    margin-top: 1rem;
+  }
+
+  .panel h2 {
+    font-size: 1.45rem;
+  }
+
+  .kicker {
+    font-size: 0.72rem;
+  }
+
+  .avatar {
+    width: min(38%, 135px);
+  }
+
+  .brand {
+    font-size: 1.12rem;
+  }
+
+}
+
+
 
