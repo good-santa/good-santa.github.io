@@ -15,9 +15,10 @@
     hero_btn_contact: "Контакти",
     about_title: "Про мене",
     about_text:
-      "Я <strong>good santa</strong>, студент і fullstack-розробник. Працюю над реальними вебпроєктами та прокачую архітектурне мислення.",
+      "Я <strong>good santa</strong>, студент і QA-тестувальник, який також розвивається у fullstack-напрямі. Моя ключова сила - перевірка якості, стабільності та логіки продукту, а fullstack-частину поступово прокачую (поки 50/50).",
     stack_title: "Технологічний стек",
-    stack_hint: "Коли скинеш стек, заміню плейсхолдери на конкретні технології.",
+    stack_chip_main: "Fullstack / QA",
+    stack_hint: "Секцію стеку підготую та заповню пізніше.",
     now_title: "Зараз",
     now_text:
       "Зараз фокус на швидких fullstack MVP, чистих API і нормальній продуктивності без зайвого шуму.",
@@ -37,7 +38,7 @@
     contact_steam: "🎮 Профіль Steam",
     collab_title: "Співпраця",
     collab_text:
-      "Відкритий до співпраці: pet-проєкти, MVP, фриланс і командні задачі fullstack-рівня."
+      "Відкритий до співпраці як QA-тестувальник: ручне тестування, перевірка логіки, баг-репорти, smoke/regression і підтримка релізів."
   },
   en: {
     meta_title: "good santa | Moonlit Fullstack",
@@ -55,9 +56,10 @@
     hero_btn_contact: "Contact",
     about_title: "About",
     about_text:
-      "I'm <strong>good santa</strong>, a student and fullstack developer. I work on real web projects and improve my architecture skills.",
+      "I'm <strong>good santa</strong>, a student and QA tester who is also growing in fullstack development. My core strength is ensuring product quality, stability, and logic, while my fullstack level is still evolving (currently around 50/50).",
     stack_title: "Tech Stack",
-    stack_hint: "Once you send your stack, I will replace placeholders with real technologies.",
+    stack_chip_main: "Fullstack / QA",
+    stack_hint: "I will prepare and fill this stack section later.",
     now_title: "Now",
     now_text:
       "Current focus: fast fullstack MVPs, clean APIs, and real performance without extra noise.",
@@ -77,7 +79,7 @@
     contact_steam: "🎮 Steam Profile",
     collab_title: "Collab",
     collab_text:
-      "Open for collaboration: pet projects, MVP builds, freelance tasks, and fullstack team work."
+      "Open for collaboration as a QA tester: manual testing, logic validation, bug reporting, smoke/regression checks, and release support."
   }
 };
 
