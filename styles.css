@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #09070f;
   --panel: rgba(18, 14, 30, 0.62);
   --line: rgba(184, 144, 255, 0.24);
@@ -7,6 +7,8 @@
   --violet: #7f57c8;
   --pink: #d17bb8;
   --cyan: #7ed4f3;
+  --cursor-x: 50%;
+  --cursor-y: 50%;
 }
 
 * {
@@ -26,6 +28,27 @@ body {
     linear-gradient(160deg, #07060d 0%, #0d0916 55%, #130d20 100%);
   font-family: "Space Grotesk", system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  background:
+    radial-gradient(
+      220px circle at var(--cursor-x) var(--cursor-y),
+      rgba(126, 212, 243, 0.2) 0%,
+      rgba(126, 212, 243, 0.08) 35%,
+      rgba(126, 212, 243, 0) 70%
+    );
+}
+
+body.cursor-glow-active::before {
+  opacity: 1;
 }
 
 .ambient {
@@ -142,6 +165,27 @@ nav a:hover {
   max-width: 56ch;
 }
 
+.hero-subtitle {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+}
+
+.hero-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  color: var(--cyan);
+}
+
+.icon-inline {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.9;
+  vertical-align: -2px;
+}
+
 .kicker {
   color: var(--cyan);
   text-transform: uppercase;
@@ -176,6 +220,24 @@ nav a:hover {
 .hero-art {
   position: relative;
   min-height: 360px;
+}
+
+.gifer-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 80px rgba(10, 8, 20, 0.6);
+}
+
+.gifer-frame {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
 }
 
 .moon {
@@ -289,6 +351,12 @@ nav a:hover {
   color: var(--cyan);
 }
 
+.project-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+}
+
 .muted-card {
   opacity: 0.78;
 }
@@ -299,6 +367,9 @@ nav a:hover {
 }
 
 .contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #e9deff;
   text-decoration: none;
 }
@@ -359,3 +430,10 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+@media (hover: none), (pointer: coarse) {
+  body::before {
+    display: none;
+  }
+}
+

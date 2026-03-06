@@ -37,14 +37,30 @@
       <div class="hero-copy">
         <p class="kicker" data-i18n="hero_kicker">fullstack night log</p>
         <h1 data-i18n="hero_title">good santa: У моєму мішку лише валідний код та швидкі запити.</h1>
-        <p data-i18n="hero_subtitle">Тихий ритм, сильний фокус, продуманий фулстек. 🌙✨🐈</p>
+        <p class="hero-subtitle">
+          <span data-i18n="hero_subtitle">Тихий ритм, сильний фокус, продуманий фулстек.</span>
+          <span class="hero-icons" aria-hidden="true">
+            <i data-lucide="moon-star" class="icon-inline"></i>
+            <i data-lucide="sparkles" class="icon-inline"></i>
+            <i data-lucide="cat" class="icon-inline"></i>
+          </span>
+        </p>
         <div class="actions">
           <a class="btn btn-primary" href="#projects" data-i18n="hero_btn_projects">Проєкти</a>
           <a class="btn btn-ghost" href="#contact" data-i18n="hero_btn_contact">Контакти</a>
         </div>
       </div>
       <div class="hero-art">
-        <img class="moon" src="./assets/background.jpg" alt="Night moon background" />
+        <div class="gifer-wrap">
+          <iframe
+            class="gifer-frame"
+            src="https://gifer.com/embed/J3u2"
+            title="Animated sky from Gifer"
+            loading="lazy"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
         <img class="avatar" src="./assets/Avatar-removebg-preview.png" alt="Samurai cat avatar" />
       </div>
     </section>
@@ -82,17 +98,26 @@
         <a class="project-card" href="https://bingo.pippsza.dev/ru/about" target="_blank" rel="noreferrer">
           <h3 data-i18n="project1_title">Bingo Project</h3>
           <p data-i18n="project1_desc">Сайт, над яким я працював: сторінка About / RU.</p>
-          <span data-i18n="project_open">Open project ↗</span>
+          <span class="project-open">
+            <span data-i18n="project_open">Open project</span>
+            <i data-lucide="arrow-up-right" class="icon-inline" aria-hidden="true"></i>
+          </span>
         </a>
         <a class="project-card" href="https://sen.pippsza.dev/en" target="_blank" rel="noreferrer">
           <h3 data-i18n="project2_title">SEN Project</h3>
           <p data-i18n="project2_desc">Вебпроєкт, над яким я працював: англомовна версія.</p>
-          <span data-i18n="project_open">Open project ↗</span>
+          <span class="project-open">
+            <span data-i18n="project_open">Open project</span>
+            <i data-lucide="arrow-up-right" class="icon-inline" aria-hidden="true"></i>
+          </span>
         </a>
         <a class="project-card" href="https://contacts.pippsza.dev/" target="_blank" rel="noreferrer">
           <h3 data-i18n="project3_title">Contacts Project</h3>
           <p data-i18n="project3_desc">Контактний вебпроєкт, над яким я працював.</p>
-          <span data-i18n="project_open">Open project ↗</span>
+          <span class="project-open">
+            <span data-i18n="project_open">Open project</span>
+            <i data-lucide="arrow-up-right" class="icon-inline" aria-hidden="true"></i>
+          </span>
         </a>
       </div>
     </section>
@@ -105,13 +130,23 @@
     <section id="contact" class="panel reveal">
       <h2 data-i18n="contact_title">Contact</h2>
       <div class="contact-list">
-        <a href="https://github.com/good-santa" target="_blank" rel="noreferrer">💻 github.com/good-santa</a>
-        <a href="https://t.me/g00d_santa" target="_blank" rel="noreferrer">✨ t.me/g00d_santa</a>
-        <a href="https://steamcommunity.com/profiles/76561199033140296" target="_blank" rel="noreferrer" data-i18n="contact_steam">🎮 Steam Profile</a>
+        <a href="https://github.com/good-santa" target="_blank" rel="noreferrer">
+          <i data-lucide="github" class="icon-inline" aria-hidden="true"></i>
+          <span>github.com/good-santa</span>
+        </a>
+        <a href="https://t.me/g00d_santa" target="_blank" rel="noreferrer">
+          <i data-lucide="send" class="icon-inline" aria-hidden="true"></i>
+          <span>t.me/g00d_santa</span>
+        </a>
+        <a href="https://steamcommunity.com/profiles/76561199033140296" target="_blank" rel="noreferrer">
+          <i data-lucide="gamepad-2" class="icon-inline" aria-hidden="true"></i>
+          <span data-i18n="contact_steam">Steam Profile</span>
+        </a>
       </div>
     </section>
   </main>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="./script.js"></script>
 </body>
 </html>

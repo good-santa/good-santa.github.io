@@ -10,7 +10,7 @@
     nav_contact: "Контакти",
     hero_kicker: "нічний fullstack log",
     hero_title: "good santa: У моєму мішку лише валідний код та швидкі запити.",
-    hero_subtitle: "Тихий ритм, сильний фокус, продуманий фулстек. 🌙✨🐈",
+    hero_subtitle: "Тихий ритм, сильний фокус, продуманий фулстек.",
     hero_btn_projects: "Проєкти",
     hero_btn_contact: "Контакти",
     about_title: "Про мене",
@@ -31,11 +31,11 @@
     project1_desc: "Сайт, над яким я працював: сторінка About / RU.",
     project2_title: "SEN Project",
     project2_desc: "Вебпроєкт, над яким я працював: англомовна версія.",
-    project_open: "Відкрити проєкт ↗",
+    project_open: "Відкрити проєкт",
     project3_title: "Contacts Project",
     project3_desc: "Контактний вебпроєкт, над яким я працював.",
     contact_title: "Контакти",
-    contact_steam: "🎮 Профіль Steam",
+    contact_steam: "Профіль Steam",
     collab_title: "Співпраця",
     collab_text:
       "Відкритий до співпраці як QA-тестувальник: ручне тестування, перевірка логіки, баг-репорти, smoke/regression і підтримка релізів."
@@ -51,7 +51,7 @@
     nav_contact: "Contact",
     hero_kicker: "fullstack night log",
     hero_title: "good santa: In my bag, only valid code and fast queries.",
-    hero_subtitle: "Quiet rhythm, deep focus, thoughtful fullstack. 🌙✨🐈",
+    hero_subtitle: "Quiet rhythm, deep focus, thoughtful fullstack.",
     hero_btn_projects: "Projects",
     hero_btn_contact: "Contact",
     about_title: "About",
@@ -72,11 +72,11 @@
     project1_desc: "A website I worked on: About page / RU.",
     project2_title: "SEN Project",
     project2_desc: "A web project I worked on: English version.",
-    project_open: "Open project ↗",
+    project_open: "Open project",
     project3_title: "Contacts Project",
     project3_desc: "A contacts web project I worked on.",
     contact_title: "Contact",
-    contact_steam: "🎮 Steam Profile",
+    contact_steam: "Steam Profile",
     collab_title: "Collab",
     collab_text:
       "Open for collaboration as a QA tester: manual testing, logic validation, bug reporting, smoke/regression checks, and release support."
@@ -109,6 +109,10 @@ function applyLanguage(lang) {
     btn.classList.toggle("active", btn.dataset.langBtn === locale);
   });
 
+  if (window.lucide && typeof window.lucide.createIcons === "function") {
+    window.lucide.createIcons();
+  }
+
   localStorage.setItem("preferred_lang", locale);
 }
 
@@ -131,3 +135,39 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+const canUseCursorGlow = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (canUseCursorGlow) {
+  const root = document.documentElement;
+  const body = document.body;
+  let rafId = null;
+  let nextX = window.innerWidth / 2;
+  let nextY = window.innerHeight / 2;
+
+  const paintCursorGlow = () => {
+    root.style.setProperty("--cursor-x", `${nextX}px`);
+    root.style.setProperty("--cursor-y", `${nextY}px`);
+    rafId = null;
+  };
+
+  const queuePaint = () => {
+    if (rafId !== null) return;
+    rafId = window.requestAnimationFrame(paintCursorGlow);
+  };
+
+  window.addEventListener("mousemove", (event) => {
+    nextX = event.clientX;
+    nextY = event.clientY;
+    body.classList.add("cursor-glow-active");
+    queuePaint();
+  });
+
+  window.addEventListener("mouseenter", () => {
+    body.classList.add("cursor-glow-active");
+  });
+
+  window.addEventListener("mouseleave", () => {
+    body.classList.remove("cursor-glow-active");
+  });
+}
